@@ -15,7 +15,7 @@ Experimental [buildpacks.io](https://buildpacks.io) builder for Railway based of
 - HTTPD
 
 
-## Creating Builder
+## Usage
 
 View the [operator guide](https://buildpacks.io/docs/operator-guide/create-a-builder/) guide for detailed docs on creating a builder.
 
