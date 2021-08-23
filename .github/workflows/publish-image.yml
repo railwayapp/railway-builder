@@ -1,0 +1,24 @@
+name: Publish Builder Image
+
+on:
+  release:
+    types:
+    - published
+
+jobs:
+  push:
+    name: Push
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Global Pack
+        uses: buildpacks/github-actions/setup-pack@main
+        with:
+          pack-version: ${{ steps.pack-version.outputs.version }}
+
+      - name: Create Builder Image
+        run: |
+          pack create-builder builder --config builder.toml
