@@ -26,8 +26,11 @@ jobs:
 
       - name: Create Builder Image
         run: |
-          pack create-builder builder --config builder.toml
+          pack create-builder railway-builder --config builder.toml
+          docker tag railway-builder ghcr.io/railwayapp/railway-builder:latest
 
       - name: Push Image
         run: |
           docker push ghcr.io/railwayapp/railway-builder:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
