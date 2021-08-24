@@ -13,6 +13,7 @@ Experimental [buildpacks.io](https://buildpacks.io) builder for Railway based of
 - .NET
 - Nginx
 - HTTPD
+- Python
 
 
 ## Usage
