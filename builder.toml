@@ -25,8 +25,8 @@ description = "Railway builder based off the Paketo full builder. Support for No
   version = "0.3.1"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/nodejs:0.6.2"
-  version = "0.6.2"
+  uri = "docker://ghcr.io/railwayapp/railway-nodejs:0.7.1"
+  version = "0.7.1"
 
 [[buildpacks]]
   uri = "docker://gcr.io/paketo-buildpacks/php:0.5.2"
@@ -66,7 +66,7 @@ description = "Railway builder based off the Paketo full builder. Support for No
 
   [[order.group]]
     id = "paketo-buildpacks/nodejs"
-    version = "0.6.2"
+    version = "0.7.1"
 
 [[order]]
 
