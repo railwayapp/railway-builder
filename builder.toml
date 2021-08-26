@@ -65,7 +65,7 @@ description = "Railway builder based off the Paketo full builder. Support for No
 [[order]]
 
   [[order.group]]
-    id = "paketo-buildpacks/nodejs"
+    id = "railwayapp/railway-nodejs"
     version = "0.7.1"
 
 [[order]]
