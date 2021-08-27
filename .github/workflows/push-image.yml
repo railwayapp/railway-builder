@@ -1,0 +1,56 @@
+name: Push Builder Image
+
+on:
+  release:
+    types:
+    - published
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  push:
+    name: Push
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Parse Event
+      id: event
+      run: |
+        echo "::set-output name=tag::$(jq -r '.release.tag_name' "${GITHUB_EVENT_PATH}" | sed s/^v//)"
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Get pack version
+      id: pack-version
+      run: |
+        version=$(jq -r .pack "scripts/.util/tools.json")
+        echo "::set-output name=version::${version#v}"
+
+    - name: Install Global Pack
+      uses: buildpacks/github-actions/setup-pack@main
+      with:
+        pack-version: ${{ steps.pack-version.outputs.version }}
+
+    - name: Create Builder Image
+      run: |
+        pack create-builder builder --config builder.toml
+
+    - name: Log in to the Container registry
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Tag Image
+      run: |
+        docker tag railway-builder ghcr.io/railwayapp/railway-builder
+        docker tag railway-builder ghcr.io/railwayapp/railway-builder:${{ steps.event.outputs.tag }}
+
+    - name: Push Image
+      run: |
+        docker push railway-builder ghcr.io/railwayapp/railway-builder
+        docker push railway-builder ghcr.io/railwayapp/railway-builder:${{ steps.event.outputs.tag }}

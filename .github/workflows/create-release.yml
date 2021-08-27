@@ -1,0 +1,51 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+    - main
+
+concurrency: release
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout With History
+      uses: actions/checkout/@v2
+      with:
+        fetch-depth: 0  # gets full history
+    - name: Compare With Previous Release
+      id: compare_previous_release
+      run: |
+        if [ -z "$(git diff $(git describe --tags --abbrev=0) -- builder.toml)" ]
+        then
+          echo "::set-output name=builder_changes::false"
+        else
+          echo "::set-output name=builder_changes::true"
+        fi
+    - name: Publish Release
+      id: publish
+      if: ${{ steps.compare_previous_release.outputs.builder_changes == 'true' }}
+      uses: release-drafter/release-drafter@v5
+      with:
+        config-name: release-drafter-config.yml
+        publish: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+    - name: Update Release Notes
+      if: ${{ steps.compare_previous_release.outputs.builder_changes == 'true' }}
+      run: |
+        set -e
+        payload="{\"body\" : \"\`\`\`\n${RELEASE_BODY}\n\`\`\`\"}"
+
+        curl --fail \
+          -X PATCH \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${GITHUB_TOKEN}" \
+          "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE_ID}" \
+          -d "${payload}"
+      env:
+        RELEASE_ID: ${{ steps.publish.outputs.id }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
