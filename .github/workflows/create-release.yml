@@ -38,14 +38,12 @@ jobs:
       if: ${{ steps.compare_previous_release.outputs.builder_changes == 'true' }}
       run: |
         set -e
-        payload="{\"body\" : \"\`\`\`\n${RELEASE_BODY}\n\`\`\`\"}"
 
         curl --fail \
           -X PATCH \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${GITHUB_TOKEN}" \
-          "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE_ID}" \
-          -d "${payload}"
+          "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE_ID}"
       env:
         RELEASE_ID: ${{ steps.publish.outputs.id }}
         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
