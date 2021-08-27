@@ -13,8 +13,8 @@ description = "Railway builder based off the Paketo full builder. Support for No
   version = "0.1.1"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/java-native-image:5.5.0"
-  version = "5.5.0"
+  uri = "docker://gcr.io/paketo-buildpacks/java-native-image:5.6.0"
+  version = "5.6.0"
 
 [[buildpacks]]
   uri = "docker://gcr.io/paketo-buildpacks/java:5.12.0"
@@ -99,7 +99,7 @@ description = "Railway builder based off the Paketo full builder. Support for No
 
   [[order.group]]
     id = "paketo-buildpacks/java-native-image"
-    version = "5.5.0"
+    version = "5.6.0"
 
 [[order]]
 
