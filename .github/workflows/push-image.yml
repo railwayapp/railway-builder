@@ -46,5 +46,5 @@ jobs:
 
     - name: Push Image
       run: |
-        docker push railway-builder ghcr.io/railwayapp/railway-builder
-        docker push railway-builder ghcr.io/railwayapp/railway-builder:${{ steps.event.outputs.tag }}
+        docker push ghcr.io/railwayapp/railway-builder
+        docker push ghcr.io/railwayapp/railway-builder:${{ steps.event.outputs.tag }}
