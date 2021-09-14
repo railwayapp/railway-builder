@@ -21,16 +21,16 @@ description = "Railway builder based off the Paketo full builder. Support for No
   version = "5.13.0"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/nginx:0.3.2"
-  version = "0.3.2"
+  uri = "docker://gcr.io/paketo-buildpacks/nginx:0.3.3"
+  version = "0.3.3"
 
 [[buildpacks]]
   uri = "docker://ghcr.io/railwayapp/nodejs:0.7.5"
   version = "0.7.5"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/php:0.5.3"
-  version = "0.5.3"
+  uri = "docker://gcr.io/paketo-buildpacks/php:0.5.4"
+  version = "0.5.4"
 
 [[buildpacks]]
   uri = "docker://gcr.io/paketo-buildpacks/procfile:4.3.1"
@@ -81,13 +81,13 @@ description = "Railway builder based off the Paketo full builder. Support for No
 
   [[order.group]]
     id = "paketo-buildpacks/php"
-    version = "0.5.3"
+    version = "0.5.4"
 
 [[order]]
 
   [[order.group]]
     id = "paketo-buildpacks/nginx"
-    version = "0.3.2"
+    version = "0.3.3"
 
 [[order]]
 
