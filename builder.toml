@@ -1,40 +1,40 @@
 description = "Railway builder based off the Paketo full builder. Support for NodeJS, Go, DotNet, HTTPD, Java, Nginx, PHP, Ruby, Python"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/dotnet-core:0.6.0"
-  version = "0.6.0"
+  uri = "docker://gcr.io/paketo-buildpacks/dotnet-core:0.7.0"
+  version = "0.7.0"
 
 [[buildpacks]]
   uri = "docker://gcr.io/paketo-buildpacks/go:0.10.0"
   version = "0.10.0"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/httpd:0.1.1"
-  version = "0.1.1"
+  uri = "docker://gcr.io/paketo-buildpacks/httpd:0.1.2"
+  version = "0.1.2"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/java-native-image:5.7.0"
-  version = "5.7.0"
+  uri = "docker://gcr.io/paketo-buildpacks/java-native-image:5.10.0"
+  version = "5.10.0"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/java:5.12.0"
-  version = "5.12.0"
+  uri = "docker://gcr.io/paketo-buildpacks/java:5.17.0"
+  version = "5.17.0"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/nginx:0.3.2"
-  version = "0.3.2"
+  uri = "docker://gcr.io/paketo-buildpacks/nginx:0.3.3"
+  version = "0.3.3"
 
 [[buildpacks]]
   uri = "docker://ghcr.io/railwayapp/nodejs:0.7.5"
   version = "0.7.5"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/php:0.5.3"
-  version = "0.5.3"
+  uri = "docker://gcr.io/paketo-buildpacks/php:0.5.6"
+  version = "0.5.6"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/procfile:4.3.0"
-  version = "4.3.0"
+  uri = "docker://gcr.io/paketo-buildpacks/procfile:4.4.0"
+  version = "4.4.0"
 
 [[buildpacks]]
   uri = "docker://gcr.io/paketo-buildpacks/ruby:0.9.0"
@@ -45,7 +45,7 @@ description = "Railway builder based off the Paketo full builder. Support for No
   version = "0.7.0"
 
 [lifecycle]
-  version = "0.11.4"
+  version = "0.12.0"
 
 [[order]]
 
@@ -63,7 +63,7 @@ description = "Railway builder based off the Paketo full builder. Support for No
 
   [[order.group]]
     id = "paketo-buildpacks/dotnet-core"
-    version = "0.6.0"
+    version = "0.7.0"
 
 [[order]]
 
@@ -81,40 +81,40 @@ description = "Railway builder based off the Paketo full builder. Support for No
 
   [[order.group]]
     id = "paketo-buildpacks/php"
-    version = "0.5.3"
+    version = "0.5.6"
 
 [[order]]
 
   [[order.group]]
     id = "paketo-buildpacks/nginx"
-    version = "0.3.2"
+    version = "0.3.3"
 
 [[order]]
 
   [[order.group]]
     id = "paketo-buildpacks/httpd"
-    version = "0.1.1"
+    version = "0.1.2"
 
 [[order]]
 
   [[order.group]]
     id = "paketo-buildpacks/java-native-image"
-    version = "5.7.0"
+    version = "5.10.0"
 
 [[order]]
 
   [[order.group]]
     id = "paketo-buildpacks/java"
-    version = "5.12.0"
+    version = "5.17.0"
 
 [[order]]
 
   [[order.group]]
     id = "paketo-buildpacks/procfile"
-    version = "4.3.0"
+    version = "4.4.0"
 
 [stack]
-  build-image = "docker.io/paketobuildpacks/build:1.2.32-full-cnb"
+  build-image = "docker.io/paketobuildpacks/build:1.2.45-full-cnb"
   id = "io.buildpacks.stacks.bionic"
   run-image = "index.docker.io/paketobuildpacks/run:full-cnb"
   run-image-mirrors = ["gcr.io/paketo-buildpacks/run:full-cnb"]
