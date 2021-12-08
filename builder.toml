@@ -5,8 +5,8 @@ description = "Railway builder based off the Paketo full builder. Support for No
   version = "0.10.0"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/go:0.12.0"
-  version = "0.12.0"
+  uri = "docker://gcr.io/paketo-buildpacks/go:0.13.0"
+  version = "0.13.0"
 
 [[buildpacks]]
   uri = "docker://gcr.io/paketo-buildpacks/httpd:0.2.0"
@@ -75,7 +75,7 @@ description = "Railway builder based off the Paketo full builder. Support for No
 
   [[order.group]]
     id = "paketo-buildpacks/go"
-    version = "0.12.0"
+    version = "0.13.0"
 
 [[order]]
 
