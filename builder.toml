@@ -1,8 +1,8 @@
 description = "Railway builder based off the Paketo full builder. Support for NodeJS, Go, DotNet, HTTPD, Java, Nginx, PHP, Ruby, Python"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/dotnet-core:0.10.1"
-  version = "0.10.1"
+  uri = "docker://gcr.io/paketo-buildpacks/dotnet-core:0.10.2"
+  version = "0.10.2"
 
 [[buildpacks]]
   uri = "docker://gcr.io/paketo-buildpacks/go:0.13.1"
@@ -63,7 +63,7 @@ description = "Railway builder based off the Paketo full builder. Support for No
 
   [[order.group]]
     id = "paketo-buildpacks/dotnet-core"
-    version = "0.10.1"
+    version = "0.10.2"
 
 [[order]]
 
