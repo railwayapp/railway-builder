@@ -29,8 +29,8 @@ description = "Railway builder based off the Paketo full builder. Support for No
   version = "0.7.6"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/php:0.7.0"
-  version = "0.7.0"
+  uri = "docker://gcr.io/paketo-buildpacks/php:0.8.0"
+  version = "0.8.0"
 
 [[buildpacks]]
   uri = "docker://gcr.io/paketo-buildpacks/procfile:5.0.2"
@@ -81,7 +81,7 @@ description = "Railway builder based off the Paketo full builder. Support for No
 
   [[order.group]]
     id = "paketo-buildpacks/php"
-    version = "0.7.0"
+    version = "0.8.0"
 
 [[order]]
 
